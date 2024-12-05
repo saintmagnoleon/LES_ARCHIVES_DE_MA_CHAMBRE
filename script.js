@@ -25,7 +25,7 @@ function changeImage(e) {
 
 function updateTime() {
     const e = (new Date).toLocaleTimeString();
-    document.getElementById("dateTimeLocation").textContent = `It's ${e}`
+    document.getElementById("dateTimeLocation").textContent = `Il est ${e}`
 }
 if (document.addEventListener("DOMContentLoaded", (() => {
         document.querySelector(".arrow.left").addEventListener("click", (() => changeImage(-1))), document.querySelector(".arrow.right").addEventListener("click", (() => changeImage(1))), works.forEach(((e, t) => {
@@ -37,18 +37,18 @@ if (document.addEventListener("DOMContentLoaded", (() => {
         sessionStorage.getItem("startTime") || sessionStorage.setItem("startTime", Date.now()), setInterval((function() {
             const e = sessionStorage.getItem("startTime"),
                 t = Math.floor((Date.now() - e) / 1e3);
-            document.getElementById("timer").innerText = `You've been lingering here for ${t} seconds.`
+            document.getElementById("timer").innerText = `Vous êtes ici pendant ${t} secondes.`
         }), 1e3)
     }, window.onbeforeunload = function() {
         sessionStorage.removeItem("startTime")
     }, document.addEventListener("DOMContentLoaded", (function() {
         var e = document.getElementById("click-counter"),
             t = parseInt(sessionStorage.getItem("clickCount")) || 0;
-        e.innerText = `You clicked ${t} times.`, document.addEventListener("click", (function() {
-            t++, sessionStorage.setItem("clickCount", t), e.innerText = `You clicked ${t} times.`
+        e.innerText = `Vous avez cliqué ${t} fois.`, document.addEventListener("click", (function() {
+            t++, sessionStorage.setItem("clickCount", t), e.innerText = `Vous avez cliqué ${t} fois.`
         }))
     })), document.addEventListener("DOMContentLoaded", (function() {
-        document.getElementById("current-date").textContent = (new Date).toLocaleDateString("en-US", {
+        document.getElementById("current-date").textContent = (new Date).toLocaleDateString("fr-FR", {
             year: "numeric",
             month: "long",
             day: "numeric"
